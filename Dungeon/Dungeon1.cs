@@ -59,11 +59,22 @@ namespace Dungeon
 
             do
             {
-                Console.WriteLine("\nYou enter a room and find a monster!\nIt is charging at you!!!");
+
+
                 //TODO make a Monster
 
-                //TODO make a Room
+                //private static string GetRoom()
+                //{
 
+
+                //string[] roomType =
+                //{
+                //    "A dark and brooding Red Room", "An Upside Down Room\nYour stomach sinks as you walk along the ceiling", "The room falls into an unsettling darkness\nAn overwhelming deep and loud pulse shakes your bones from the envolped void.", "The room looks like a normal room\nSomething really feels off about it.", "Some kind of Party Room\nA monster is blowing out a candle while surrounded by friends", "This is just a Room\nFour walls, a floor, and ceiling...what were you expecting?", "There is just a 'Room' ahead of you\nWhen you walked in you couldn't tell if you entered the room or the room entered you", "You thought this was an exit but it was just a room pretending to be an exit"
+                //};
+                //int room = randRoom.Next(8);
+                //Console.WriteLine($"\n{roomType[room]}\n\n You find a monster!\tIt is charging at you!!!");
+                //}//end GetRoom()
+                Console.WriteLine(GetRoom());
 
 
                 bool combat = true;
@@ -91,7 +102,7 @@ namespace Dungeon
                                     Console.WriteLine("\nYou were eaten in one gulp...");
                                     Console.ReadKey(true);
                                     combat = false;
-                                    dungeon= false;
+                                    dungeon = false;
                                     break;
                                 default:
                                     Console.WriteLine("How did you get here?");
@@ -157,7 +168,7 @@ namespace Dungeon
                             Console.WriteLine("\nThe enemy draws closer!");
                             Console.ReadKey(true);
                             combat = true;
-                            dungeon=true;
+                            dungeon = true;
                             break;
                     }//end switch combat
 
@@ -170,5 +181,27 @@ namespace Dungeon
             Console.ReadKey(true);
             #endregion
         }//end Main()
+
+        private static string GetRoom()
+        {
+            Random randRoom = new Random();
+
+
+            string[] roomType =
+            {
+                "A dark and brooding Red Room",
+                "An Upside Down Room\nYour stomach sinks as you walk along the ceiling",
+                "The room falls into an unsettling darkness\nAn overwhelming deep and loud pulse shakes your bones from the envolped void.",
+                "The room looks like a normal room\nSomething really feels off about it.",
+                "Some kind of Party Room\nA monster is blowing out a candle while surrounded by friends",
+                "This is just a Room\nFour walls, a floor, and ceiling...what were you expecting?",
+                "There is just a 'Room' ahead of you\nWhen you walked in you couldn't tell if you entered the room or the room entered you",
+                "You thought this was an exit but it was just a room pretending to be an exit"
+            };
+            int room = randRoom.Next(roomType.Length);
+            string roomDescription = roomType[room];
+            return roomDescription;
+        }//end GetRoom()
+
     }//end class
 }//end namespace
