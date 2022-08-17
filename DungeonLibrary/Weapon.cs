@@ -10,6 +10,7 @@ namespace DungeonLibrary
     {
         //Field
         private string _name;
+        private string _weaponType;
         private bool _isTwoHanded;
         private int _bonusHitChance;
         private int _maxDamage;
@@ -21,6 +22,12 @@ namespace DungeonLibrary
             get { return _name; }
             set { _name = value; }
         }//end Name
+
+        public string WeaponType
+        {
+            get { return _weaponType; }
+            set { _weaponType = value; }
+        }//end WeaponType
 
         public bool IsTwoHanded
         {
@@ -62,9 +69,10 @@ namespace DungeonLibrary
         }//end MinDamage
 
         //CTOR
-        public Weapon(string name, bool isTwoHanded, int bonusHitChance, int maxDamage, int minDamage)
+        public Weapon(string name, string weaponType, bool isTwoHanded, int bonusHitChance, int maxDamage, int minDamage)
         {
             Name = name;
+            WeaponType = weaponType;
             IsTwoHanded = isTwoHanded;
             BonusHitChance = bonusHitChance;
             MaxDamage = maxDamage;
@@ -78,7 +86,7 @@ namespace DungeonLibrary
         //-> Namespace.ClassName
         public override string ToString()
         {
-            return $"{Name}\n" +
+            return $"{Name}\t\t{WeaponType}\n" +
                 $"{(IsTwoHanded ? "Two Handed" : "One Handed")}\n" +
                 $"Bonus Hit Chance: {BonusHitChance}\n" +
                 $"Minimum Damage: {MaxDamage}\n" +
