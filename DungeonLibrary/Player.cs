@@ -57,7 +57,7 @@ namespace DungeonLibrary
                     description = " A Grooving Skeleton";
                     break;
             }
-            return $"{base.ToString()}\n{CharacterRace}\n{EquippedWeapon}";
+            return $"{base.ToString()}\n{CharacterRace}:\t{description}\n{EquippedWeapon}";
         }//end ToString()
         public override int CalcDamage()
         {
