@@ -10,14 +10,14 @@ namespace DungeonLibrary
     {
         BirthdayBoyOgre,
         TempHotVampire,
-        SussPlayer,
         UncannyValleyMimic,
-        Guard,
+        //Guard,
         UpSideDownMonster,
         Champion,
         Goblin,
         Ogre,
         Skeleton,
         Skelington,
+        Human
     }
 }
