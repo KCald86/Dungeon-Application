@@ -202,6 +202,17 @@ namespace Dungeon
             string roomDescription = roomType[room];
             return roomDescription;
         }//end GetRoom()
+        private static string GetMonster()
+        {
+            Random randomMonster = new Random();
 
+            string[] monsterPool =
+            {
+                
+            };
+            int monsterV =randomMonster.Next(monsterPool.Length);
+            var spawnMonster=monsterPool[monsterV];
+            return spawnMonster;
+        }//end GetMonster()
     }//end class
 }//end namespace

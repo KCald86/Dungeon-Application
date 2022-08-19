@@ -85,4 +85,119 @@ namespace DungeonLibrary
         }//end CalcDamage()
 
     }//end class
+
+    public class Skeleton : Monster
+    {
+        public bool IsFrail { get; set; }//-MaxLife or life=1
+        public bool NoGains { get; set; }//-MaxDmg or set dmg=1
+
+        public Skeleton()
+        {
+            Name = "Bag of Bones";
+            MaxLife =4;
+            Life =4;
+            MaxDamage =3;
+            MinDamage =1;
+            HitChance =33;
+            Block =20;
+            MonsterRace = Race.Skeleton;
+            IsFrail = true;
+            NoGains = true;
+        }
+        public Skeleton(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool isFrail, bool noGains) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        {
+            IsFrail=isFrail;
+            NoGains=noGains;
+        }//end FQ CTOR
+    }//end skeleton
+    public class Skelington : Monster
+    {
+        public bool SongOfItsPeople { get; set; }//+MinDmg to other monsters
+        public Skelington()
+        {
+            Name = "BagPipe of Bones";
+            MaxLife = 6;
+            Life = 6;
+            MaxDamage = 4;
+            MinDamage = 1;
+            HitChance = 38;
+            Block = 20;
+            MonsterRace = Race.Skelington;
+            SongOfItsPeople = false;
+        }
+        public Skelington(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool songOfItsPeople) : base (name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        {
+            SongOfItsPeople=songOfItsPeople;
+        }//end FQ CTOR
+
+    }//end Skelington
+    public class Goblin : Monster
+    {
+        public bool GoblinHorde { get; set; }//+goblin +MinDmg and +ToHit
+
+        public Goblin()
+        {
+            Name = "Goblin Scout";
+            MaxLife = 3;
+            Life = 3;
+            MaxDamage = 3;
+            MinDamage = 1;
+            HitChance = 24;
+            Block = 15;
+            MonsterRace = Race.Goblin;
+            GoblinHorde = false;
+        }
+        public Goblin(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool goblinHorde) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        {
+            GoblinHorde = goblinHorde;
+        }//end FQ CTOR
+
+    }//end goblin
+    public class Ogre : Monster
+    {
+        public bool BigSmash { get; set; }//more MaxDmg
+        public bool IsClumsy { get; set; }//Lower ToHit
+
+        public Ogre()
+        {
+            Name = "Stumbling Ogre";
+            MaxLife = 4;
+            Life = 4;
+            MaxDamage = 3;
+            MinDamage = 1;
+            HitChance = 33;
+            Block = 20;
+            MonsterRace = Race.Ogre;
+            BigSmash=false;
+            IsClumsy=true;
+        }
+        public Ogre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool bigSmash, bool isClumsy) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        {
+            BigSmash = bigSmash;
+            IsClumsy = isClumsy;
+        }//end FQ CTOR
+    }//end Ogre
+    public class BirthdayBoyOgre: Monster
+    {
+        public bool HavingAParty { get; set; }//all stats up
+        public bool CryIfIWantTo { get; set; }//try to unlock an OTG at low hp
+        public BirthdayBoyOgre()
+        {
+            Name = "Birthday Boy";
+            MaxLife = 4;
+            Life = 4;
+            MaxDamage = 3;
+            MinDamage = 1;
+            HitChance = 33;
+            Block = 20;
+            MonsterRace = Race.BirthdayBoyOgre;
+            HavingAParty = true;
+            CryIfIWantTo = true;
+        }
+        public BirthdayBoyOgre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool havingAParty, bool cryIfIWantTo) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        {
+            HavingAParty= havingAParty;
+            CryIfIWantTo = cryIfIWantTo;
+        }//end FQ CTOR
+    }//end BBoyOgre
 }//end namespace
