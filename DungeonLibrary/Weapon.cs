@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Weapon
+    public class Weapon
     {
         //Field
         private string _name;

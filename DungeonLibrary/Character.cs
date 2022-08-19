@@ -65,6 +65,18 @@
 
         public Character() { }//default CTOR, don't think I need it
 
+        public virtual int CalcBlock()
+        {
+            return Block;
+        }//end Block()
+        public virtual int CalcHitChance()
+        {
+            return HitChance;
+        }//end HitChance()
+        public virtual int CalcDamage()
+        {
+            return 0;
+        }//end CalcDamage()
         public override string ToString()
         {
             return string.Format("" +
