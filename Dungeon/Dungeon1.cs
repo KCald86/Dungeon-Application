@@ -1,8 +1,13 @@
-﻿using System;
+﻿using DungeonLibrary;
+using MonsterLibrary;
+using System;
+using System.Media;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Dungeon
 {
@@ -13,47 +18,50 @@ namespace Dungeon
             Console.Title = "***Enter the Dungeon***";
             Console.WriteLine("Dungeon Mock Up");
 
+            int score=0;
+            #region First thoughts
             /*
-            //TODO Create a Player
-            Console.Write("What is your name adventurer? ");
-            string playerName = Console.ReadLine();
-            bool exitIntro=false;
-            bool enterDungeon = false;
-            do
-            {
-
-
-                Console.Write($"{playerName} are you prepared to enter the ancient caverns below? ");
-                string playerStart = Console.ReadLine();
-                switch (playerStart)
+                //TODO Create a Player
+                Console.Write("What is your name adventurer? ");
+                string playerName = Console.ReadLine();
+                bool exitIntro=false;
+                bool enterDungeon = false;
+                do
                 {
-                    case "y":
-                    case "yes":
-                        Console.Clear();
-                        Console.WriteLine($"Be careful {playerName}. Everyone who has gone down there failed to return.");
-                        exitIntro=true;
-                        enterDungeon=true;
-                        break;
-                    case "n":
-                    case "no":
-                        Console.Clear();
-                        Console.WriteLine("Then return when you are prepared!");
-                        exitIntro=true;
-                        enterDungeon=false;
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Are you listening? You need to be prepared!");
-                        break;
-                }//end switch
-            } while (exitIntro==true);
 
-            while (enterDungeon==true)
-            {
-                Console.WriteLine("you are in the dungeon");
-            }//end while
-            */
-            //Oough wrote that up but was not working the way I wanted
+
+                    Console.Write($"{playerName} are you prepared to enter the ancient caverns below? ");
+                    string playerStart = Console.ReadLine();
+                    switch (playerStart)
+                    {
+                        case "y":
+                        case "yes":
+                            Console.Clear();
+                            Console.WriteLine($"Be careful {playerName}. Everyone who has gone down there failed to return.");
+                            exitIntro=true;
+                            enterDungeon=true;
+                            break;
+                        case "n":
+                        case "no":
+                            Console.Clear();
+                            Console.WriteLine("Then return when you are prepared!");
+                            exitIntro=true;
+                            enterDungeon=false;
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("Are you listening? You need to be prepared!");
+                            break;
+                    }//end switch
+                } while (exitIntro==true);
+
+                while (enterDungeon==true)
+                {
+                    Console.WriteLine("you are in the dungeon");
+                }//end while
+                */
+            //Oough wrote that up but was not working the way I wanted 
+            #endregion
 
             bool dungeon = true;
 
@@ -63,6 +71,7 @@ namespace Dungeon
 
                 //TODO make a Monster
 
+                #region GetRoom 1.0
                 //private static string GetRoom()
                 //{
 
@@ -73,14 +82,15 @@ namespace Dungeon
                 //};
                 //int room = randRoom.Next(8);
                 //Console.WriteLine($"\n{roomType[room]}\n\n You find a monster!\tIt is charging at you!!!");
-                //}//end GetRoom()
+                //}//end GetRoom() 
+                #endregion
                 Console.WriteLine(GetRoom());
 
 
                 bool combat = true;
                 do
                 {
-                    Random random = new Random();
+                   // Random random = new Random(); for old combat
                     Console.WriteLine("\n\nAn enemy approaches. What will you do?\n\n\nA. Attack:\nB. Run Away:\nC. Character Info:\nD. Monster Info:\nE. Exit:");
                     string combatCommand = Console.ReadLine().ToLower();
                     switch (combatCommand)
@@ -88,26 +98,47 @@ namespace Dungeon
                         case "a":
                         case "attack":
                             Console.Clear();
-                            int randAttack = random.Next(1, 4);
-                            switch (randAttack)
+                            #region Old Combat
+                            //int randAttack = random.Next(1, 4);
+                            //switch (randAttack)
+                            //{
+                            //    case 1:
+                            //    case 3:
+                            //        Console.WriteLine("\nPOW!\nEnemy defeated! Press any key to pick up loot and move on.");
+                            //        Console.ReadKey(true);
+                            //        combat = false;
+                            //        dungeon = true;
+                            //        break;
+                            //    case 2:
+                            //        Console.WriteLine("\nYou were eaten in one gulp...");
+                            //        Console.ReadKey(true);
+                            //        combat = false;
+                            //        dungeon = false;
+                            //        break;
+                            //    default:
+                            //        Console.WriteLine("How did you get here?");
+                            //        break;
+                            //}//end switch attack 
+                            #endregion
+                            Combat.DoBattle(player, monster);
+                            if (monster.Life <= 0)
                             {
-                                case 1:
-                                case 3:
-                                    Console.WriteLine("\nPOW!\nEnemy defeated! Press any key to pick up loot and move on.");
-                                    Console.ReadKey(true);
-                                    combat = false;
-                                    dungeon = true;
-                                    break;
-                                case 2:
-                                    Console.WriteLine("\nYou were eaten in one gulp...");
-                                    Console.ReadKey(true);
-                                    combat = false;
-                                    dungeon = false;
-                                    break;
-                                default:
-                                    Console.WriteLine("How did you get here?");
-                                    break;
-                            }//end switch attack
+                                //IT'S DEAD!
+                                //Could put logic hee to have the player get items, life, or something similiar due to beating the monster.
+                                score++;
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine($"\nYou killed {monster.Name}");
+                                Console.Beep(700, 500);
+                                Console.ResetColor();
+                                combat = true;//get a new room and a new monster
+
+                            }//end if monster dies
+                            if (Player.Life <= 0)//put after switch if you have items or non combat situations where you could reduce health and die
+                            {
+                                Console.WriteLine("Dude.... You died!\a");
+                                dungeon = true;//leave the entire game
+                            }//end if player dies
+                            break;
                             break;
 
                         case "b":
@@ -126,6 +157,8 @@ namespace Dungeon
                                 case 2:
                                     Console.WriteLine("\nYou didn't fool it! It caught back up with you!");
                                     Console.ReadKey(true);
+                                    Console.WriteLine($"{monster.Name} attacks you as you flee!");
+                                    Combat.DoAttack(monster, player);
                                     combat = true;
                                     dungeon = true;
                                     break;
@@ -140,7 +173,7 @@ namespace Dungeon
                         case "character info":
                             Console.Clear();
 
-                            Console.WriteLine("\nYep it's still you.");
+                            Console.WriteLine($"\nYou give yourself a pat-down and know...\n {player}\nMonsters Defeated: {score}");
                             combat = true;
 
                             break;
@@ -149,7 +182,7 @@ namespace Dungeon
                         case "monster info":
                             Console.Clear();
 
-                            Console.WriteLine("\nA monster, but bigger than you thought it would be.");
+                            Console.WriteLine($"You strain your eyes to look at the {monster.MonsterRace} and see\n"(monster);
                             combat = true;
                             break;
 
@@ -174,7 +207,7 @@ namespace Dungeon
 
                 } while (combat != false);
             } while (dungeon != false);
-
+            Console.WriteLine("You defeated " + score + " Monster" + (score == 1 ? "." : "s."));
 
             #region Terminator
             Console.WriteLine("\n\n\nPress any key to exit the dungeon...");
@@ -202,17 +235,19 @@ namespace Dungeon
             string roomDescription = roomType[room];
             return roomDescription;
         }//end GetRoom()
-        private static string GetMonster()
-        {
-            Random randomMonster = new Random();
+        #region GetMonster attempt 1 outline moved
+        //private static string GetMonster()
+        //{
+        //    Random randomMonster = new Random();
 
-            string[] monsterPool =
-            {
-                
-            };
-            int monsterV =randomMonster.Next(monsterPool.Length);
-            var spawnMonster=monsterPool[monsterV];
-            return spawnMonster;
-        }//end GetMonster()
+        //    string[] monsterPool =
+        //    {
+
+        //    };
+        //    int monsterV =randomMonster.Next(monsterPool.Length);
+        //    var spawnMonster=monsterPool[monsterV];
+        //    return spawnMonster;
+        //}//end GetMonster() 
+        #endregion
     }//end class
 }//end namespace

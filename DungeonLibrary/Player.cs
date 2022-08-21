@@ -23,6 +23,7 @@ namespace DungeonLibrary
         public Player() { }//end default CTOR
         public override string ToString()
         {
+            //TODO organize and make some player and monster specific races.
             string description = "";
             switch (CharacterRace)
             {
