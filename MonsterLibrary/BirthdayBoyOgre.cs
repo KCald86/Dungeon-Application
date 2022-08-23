@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MonsterLibrary
 {
-    public class BirthdayBoyOgre : Monster
+    public sealed class BirthdayBoyOgre : Monster
     {
         public bool HavingAParty { get; set; }//all stats up
         /*public bool CryIfIWantTo { get; set; }*///try to unlock an OTG at low hp

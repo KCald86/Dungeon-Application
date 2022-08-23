@@ -8,7 +8,7 @@ using DungeonLibrary;
 
 namespace MonsterLibrary
 {
-    public class Mustache : Monster
+    public sealed class Mustache : Monster
     {
         public bool IsCombed { get; set; }
         public bool IsMagnificent { get; set; }

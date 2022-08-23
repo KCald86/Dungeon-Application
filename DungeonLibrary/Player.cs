@@ -27,36 +27,47 @@ namespace DungeonLibrary
             string description = "";
             switch (CharacterRace)
             {
-                case Race.Goblin:
-                    description = " Weak on it's own, but never underestimate it.";
+                case Race.Human:
+                    description = " Common, aggressive race that's good with tools.";
                     break;
-                case Race.Ogre:
-                    description = " Large and in charge. This monster is ready to beat you down!";
+                case Race.Elf:
+                    description = " Long-lived and even longer hair. Nimble and precice.";
                     break;
-                case Race.BirthdayBoyOgre:
-                    description = " Just trying to make the most of his day.";
+                case Race.Gnome:
+                    description = " Would not approach with a non-gnome standard ten foot pole out of getting 'gnome'd'";
+                    break;
+                case Race.Dwarf:
+                    description = " Stout and sturdy. Great at making tools and digging";
                     break;
                 case Race.Champion:
                     description = " One hand closed and covered, you don't know what he's going to throw at you";
                     break;
-                case Race.Human:
-                    description = " Common, aggressive race that's good with tools.";
+                case Race.BirthdayBoyOgre:
+                    description = " Just trying to make the most of his day.";
                     break;
-                case Race.UpSideDownMonster:
-                    description = " The more you look at it the more upside down things you notice about the monster";
-                    break;
-                case Race.UncannyValleyMimic:
-                    description = " It shifts from one unsettling object to another";
-                    break;
-                case Race.TempHotVampire:
-                    description = " A Vampire that's about to have a heat stroke";
-                    break;
-                case Race.Skeleton:
-                    description = " A moving Skeleton.";
-                    break;
-                case Race.Skelington:
-                    description = " A Grooving Skeleton";
-                    break;
+                #region MonsterRaces I threw in here
+                //case Race.Goblin:
+                //    description = " Weak on it's own, but never underestimate it.";
+                //    break;
+                //case Race.Ogre:
+                //    description = " Large and in charge. This monster is ready to beat you down!";
+                //    break;
+                //case Race.Skeleton:
+                //    description = " A moving Skeleton.";
+                //    break;
+                //case Race.Skelington:
+                //    description = " A Grooving Skeleton";
+                //    break;
+                //case Race.UpSideDownMonster:
+                //    description = " The more you look at it the more upside down things you notice about the monster";
+                //    break;
+                //case Race.UncannyValleyMimic:
+                //    description = " It shifts from one unsettling object to another";
+                //    break;
+                //case Race.TempHotVampire:
+                //    description = " A Vampire that's about to have a heat stroke";
+                //    break; 
+                    #endregion
             }
             return $"{base.ToString()}\n{CharacterRace}:\t{description}\n{EquippedWeapon}";
         }//end ToString()
@@ -64,7 +75,7 @@ namespace DungeonLibrary
         {
             //return base.CalcDamage(); //returns 0
             Random random = new Random();
-            return new Random().Next(EquippedWeapon.MinDamage,EquippedWeapon.MaxDamage);
+            return new Random().Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage);
         }//end CalcDamage()
         public override int CalcHitChance()
         {

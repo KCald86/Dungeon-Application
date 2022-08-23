@@ -2,7 +2,7 @@
 
 namespace MonsterLibrary
 {
-    public class Skelington : Monster
+    public sealed class Skelington : Skeleton
     {
         public bool SongOfItsPeople { get; set; }//+MinDmg to other monsters
         public Skelington()
@@ -18,10 +18,10 @@ namespace MonsterLibrary
             //SongOfItsPeople = false;
         }
 
-        public Skelington(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public Skelington(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description, isFrail, noGains)
         {
-            SongOfItsPeople= songOfItsPeople;
-        }//end FQ CTOR
+            SongOfItsPeople=songOfItsPeople;
+        }
 
         public override int CalcHitChance()
         {

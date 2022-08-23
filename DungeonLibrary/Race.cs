@@ -18,6 +18,9 @@ namespace DungeonLibrary
         Ogre,
         Skeleton,
         Skelington,
-        Human
+        Human,
+        Elf,
+        Gnome,
+        Dwarf
     }
 }
