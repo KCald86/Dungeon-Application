@@ -16,14 +16,14 @@ namespace MonsterLibrary
             //Name = "Goblin Scout";
             //MaxLife = 3;
             //Life = 3;
-            //MaxDamage = 3;
-            //MinDamage = 1;
             //HitChance = 24;
             //Block = 15;
-            //MonsterRace = Race.Goblin;
+            //MonsterRace = CreatureRace.Goblin;
+            //MaxDamage = 3;
+            //MinDamage = 1;
             //GoblinHorde = false;
         }
-        public Goblin(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool goblinHorde) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public Goblin(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool goblinHorde) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
         {
             GoblinHorde = goblinHorde;
         }//end FQ CTOR

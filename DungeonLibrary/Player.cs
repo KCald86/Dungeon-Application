@@ -9,13 +9,13 @@ namespace DungeonLibrary
     public class Player : Character
     {
         //Unique Fields/Properties
-        public Race CharacterRace { get; set; }
+        public PlayRace PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
 
         //ctor
-        public Player(string name, int maxLife, int life, int block, int hitChance, Race characterRace, Weapon equippedWeapon) : base(name, maxLife, life, block, hitChance)
+        public Player(string name, int maxLife, int life, int block, int hitChance, PlayRace playerRace, Weapon equippedWeapon) : base(name, maxLife, life, block, hitChance)
         {
-            CharacterRace = characterRace;
+            PlayerRace = playerRace;
             EquippedWeapon = equippedWeapon;
         }//end FQ Ctor
 
@@ -25,51 +25,58 @@ namespace DungeonLibrary
         {
             //TODO organize and make some player and monster specific races.
             string description = "";
-            switch (CharacterRace)
+            switch (PlayerRace)
             {
-                case Race.Human:
+                case PlayRace.Human:
                     description = " Common, aggressive race that's good with tools.";
+                    //PlayerRace = PlayRace.Human;
                     break;
-                case Race.Elf:
+                case PlayRace.Elf:
                     description = " Long-lived and even longer hair. Nimble and precice.";
+                    //PlayerRace = PlayRace.Elf;
+
                     break;
-                case Race.Gnome:
+                case PlayRace.Gnome:
                     description = " Would not approach with a non-gnome standard ten foot pole out of getting 'gnome'd'";
+                    //PlayerRace = PlayRace.Gnome;
+
                     break;
-                case Race.Dwarf:
+                case PlayRace.Dwarf:
                     description = " Stout and sturdy. Great at making tools and digging";
+                    //PlayerRace = PlayRace.Dwarf;
+
                     break;
-                case Race.Champion:
-                    description = " One hand closed and covered, you don't know what he's going to throw at you";
-                    break;
-                case Race.BirthdayBoyOgre:
-                    description = " Just trying to make the most of his day.";
-                    break;
+                //case CreatureRace.BirthdayBoyOgre:
+                //    description = " Just trying to make the most of his day.";
+                //    break;
+                //case CreatureRace.Champion:
+                //    description = " One hand closed and covered, you don't know what he's going to throw at you";
+                //    break;
                 #region MonsterRaces I threw in here
-                //case Race.Goblin:
+                //case CreatureRace.Goblin:
                 //    description = " Weak on it's own, but never underestimate it.";
                 //    break;
-                //case Race.Ogre:
+                //case CreatureRace.Ogre:
                 //    description = " Large and in charge. This monster is ready to beat you down!";
                 //    break;
-                //case Race.Skeleton:
+                //case CreatureRace.Skeleton:
                 //    description = " A moving Skeleton.";
                 //    break;
-                //case Race.Skelington:
+                //case CreatureRace.Skelington:
                 //    description = " A Grooving Skeleton";
                 //    break;
-                //case Race.UpSideDownMonster:
+                //case CreatureRace.UpSideDownMonster:
                 //    description = " The more you look at it the more upside down things you notice about the monster";
                 //    break;
-                //case Race.UncannyValleyMimic:
+                //case CreatureRace.UncannyValleyMimic:
                 //    description = " It shifts from one unsettling object to another";
                 //    break;
-                //case Race.TempHotVampire:
+                //case CreatureRace.TempHotVampire:
                 //    description = " A Vampire that's about to have a heat stroke";
                 //    break; 
                     #endregion
             }
-            return $"{base.ToString()}\n{CharacterRace}:\t{description}\n{EquippedWeapon}";
+            return $"{base.ToString()}\n{PlayerRace}\n{EquippedWeapon}";//zero exception
         }//end ToString()
         public override int CalcDamage()
         {

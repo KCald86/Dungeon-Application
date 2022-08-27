@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Monster : Character
+    public class OldMonster : Character
     {
         //Unique Fields/Properties
         private int _minDamage;
@@ -26,16 +26,16 @@ namespace DungeonLibrary
                 }//end else
             }//end set
         }//end MinDamage
-       public Race MonsterRace { get; set; }
+       public CreatureRace MonsterRace { get; set; }
         //Constructor
        
-        public Monster(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage) : base(name, maxLife, life, block, hitChance)
+        public OldMonster(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage) : base(name, maxLife, life, block, hitChance)
         {
             MonsterRace = monsterRace;
             MaxDamage = maxDamage;
             MinDamage = minDamage;
         }//end FQ CTOR
-        public Monster() { }//end default CTOR
+        public OldMonster() { }//end default CTOR
 
         //Method
         public override string ToString()
@@ -43,34 +43,34 @@ namespace DungeonLibrary
             string description = "";
             switch (MonsterRace)
             {
-                case Race.Goblin:
+                case CreatureRace.Goblin:
                     description = " Weak on it's own, but never underestimate it.";
                     break;
-                case Race.Ogre:
+                case CreatureRace.Ogre:
                     description = " Large and in charge. This monster is ready to beat you down!";
                     break;
-                case Race.BirthdayBoyOgre:
+                case CreatureRace.BirthdayBoyOgre:
                     description = " Just trying to make the most of his day.";
                     break;
-                case Race.Champion:
+                case CreatureRace.Champion:
                     description = " One hand closed and covered, you don't know what he's going to throw at you";
                     break;
-                case Race.Human:
-                    description = " Common, aggressive race that's good with tools.";
+                case CreatureRace.Human:
+                    description = " Common, aggressive CreatureRace that's good with tools.";
                     break;
-                case Race.UpSideDownMonster:
+                case CreatureRace.UpSideDownMonster:
                     description = " The more you look at it the more upside down things you notice about the monster";
                     break;
-                case Race.UncannyValleyMimic:
+                case CreatureRace.UncannyValleyMimic:
                     description = " It shifts from one unsettling object to another";
                     break;
-                case Race.TempHotVampire:
+                case CreatureRace.TempHotVampire:
                     description = " A Vampire that's about to have a heat stroke";
                     break;
-                case Race.Skeleton:
+                case CreatureRace.Skeleton:
                     description = " A moving Skeleton.";
                     break;
-                case Race.Skelington:
+                case CreatureRace.Skelington:
                     description = " A Grooving Skeleton";
                     break;
             }
@@ -86,7 +86,7 @@ namespace DungeonLibrary
 
     }//end class
 
-    public class Skeleton : Monster
+    public class Skeleton : OldMonster
     {
         public bool IsFrail { get; set; }//-MaxLife or life=1
         public bool NoGains { get; set; }//-MaxDmg or set dmg=1
@@ -100,17 +100,17 @@ namespace DungeonLibrary
             MinDamage =1;
             HitChance =33;
             Block =20;
-            MonsterRace = Race.Skeleton;
+            MonsterRace = CreatureRace.Skeleton;
             IsFrail = true;
             NoGains = true;
         }
-        public Skeleton(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool isFrail, bool noGains) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        public Skeleton(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, CreatureRace monsterRace, bool isFrail, bool noGains) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
         {
             IsFrail=isFrail;
             NoGains=noGains;
         }//end FQ CTOR
     }//end skeleton
-    public class Skelington : Monster
+    public class Skelington : OldMonster
     {
         public bool SongOfItsPeople { get; set; }//+MinDmg to other monsters
         public Skelington()
@@ -122,16 +122,16 @@ namespace DungeonLibrary
             MinDamage = 1;
             HitChance = 38;
             Block = 20;
-            MonsterRace = Race.Skelington;
+            MonsterRace = CreatureRace.Skelington;
             SongOfItsPeople = false;
         }
-        public Skelington(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool songOfItsPeople) : base (name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        public Skelington(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, CreatureRace monsterRace, bool songOfItsPeople) : base (name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
         {
             SongOfItsPeople=songOfItsPeople;
         }//end FQ CTOR
 
     }//end Skelington
-    public class Goblin : Monster
+    public class Goblin : OldMonster
     {
         public bool GoblinHorde { get; set; }//+goblin +MinDmg and +ToHit
 
@@ -144,16 +144,16 @@ namespace DungeonLibrary
             MinDamage = 1;
             HitChance = 24;
             Block = 15;
-            MonsterRace = Race.Goblin;
+            MonsterRace = CreatureRace.Goblin;
             GoblinHorde = false;
         }
-        public Goblin(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool goblinHorde) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        public Goblin(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, CreatureRace monsterRace, bool goblinHorde) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
         {
             GoblinHorde = goblinHorde;
         }//end FQ CTOR
 
     }//end goblin
-    public class Ogre : Monster
+    public class Ogre : OldMonster
     {
         public bool BigSmash { get; set; }//more MaxDmg
         public bool IsClumsy { get; set; }//Lower ToHit
@@ -167,17 +167,17 @@ namespace DungeonLibrary
             MinDamage = 1;
             HitChance = 33;
             Block = 20;
-            MonsterRace = Race.Ogre;
+            MonsterRace = CreatureRace.Ogre;
             BigSmash=false;
             IsClumsy=true;
         }
-        public Ogre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool bigSmash, bool isClumsy) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        public Ogre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, CreatureRace monsterRace, bool bigSmash, bool isClumsy) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
         {
             BigSmash = bigSmash;
             IsClumsy = isClumsy;
         }//end FQ CTOR
     }//end Ogre
-    public class BirthdayBoyOgre: Monster
+    public class BirthdayBoyOgre: OldMonster
     {
         public bool HavingAParty { get; set; }//all stats up
         public bool CryIfIWantTo { get; set; }//try to unlock an OTG at low hp
@@ -190,11 +190,11 @@ namespace DungeonLibrary
             MinDamage = 1;
             HitChance = 33;
             Block = 20;
-            MonsterRace = Race.BirthdayBoyOgre;
+            MonsterRace = CreatureRace.BirthdayBoyOgre;
             HavingAParty = true;
             CryIfIWantTo = true;
         }
-        public BirthdayBoyOgre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, Race monsterRace, bool havingAParty, bool cryIfIWantTo) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
+        public BirthdayBoyOgre(string name, int maxLife, int life, int maxDamage, int minDamage, int hitChance, int block, CreatureRace monsterRace, bool havingAParty, bool cryIfIWantTo) : base(name, maxLife, life, maxDamage, minDamage, monsterRace, hitChance, block)
         {
             HavingAParty= havingAParty;
             CryIfIWantTo = cryIfIWantTo;

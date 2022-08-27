@@ -21,11 +21,11 @@ namespace MonsterLibrary
             MinDamage = 1;
             HitChance = 33;
             Block = 20;
-            MonsterRace = Race.Ogre;
+            MonsterRace = CreatureRace.Ogre;
             BigSmash = false;
             IsClumsy = true;
         }
-        public Ogre(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool bigSmash, bool isClumsy) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public Ogre(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool bigSmash, bool isClumsy) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
         {
             BigSmash = bigSmash;
             IsClumsy = isClumsy;

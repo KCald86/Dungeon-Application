@@ -28,11 +28,11 @@ namespace MonsterLibrary
                 _minDamage = value > MaxDamage || value < 1 ? 1 : value;
             }//end set
         }//end MinDamage
-        public Race MonsterRace { get; set; }
+        public CreatureRace MonsterRace { get; set; }
         public string Description { get; set; }
         //Constructor
 
-        public Monster(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description) : base(name, maxLife, life, block, hitChance)
+        public Monster(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description) : base(name, maxLife, life, block, hitChance)
         {
             MonsterRace = monsterRace;
             MaxDamage = maxDamage;
@@ -48,7 +48,7 @@ namespace MonsterLibrary
             HitChance = 30;
             Block = 8;
             //Monster Fields
-            MonsterRace = Race.Human;
+            MonsterRace = CreatureRace.Human;
             MaxDamage = 4;//goes first
             MinDamage = 1;
             Description = "Just a normal guy";
@@ -61,34 +61,34 @@ namespace MonsterLibrary
             //string description = "";
             //switch (MonsterRace)
             //{
-            //    case Race.Goblin:
+            //    case CreatureRace.Goblin:
             //        description = " Weak on it's own, but never underestimate it.";
             //        break;
-            //    case Race.Ogre:
+            //    case CreatureRace.Ogre:
             //        description = " Large and in charge. This monster is ready to beat you down!";
             //        break;
-            //    case Race.BirthdayBoyOgre:
+            //    case CreatureRace.BirthdayBoyOgre:
             //        description = " Just trying to make the most of his day.";
             //        break;
-            //    case Race.Champion:
+            //    case CreatureRace.Champion:
             //        description = " One hand closed and covered, you don't know what he's going to throw at you";
             //        break;
-            //    case Race.Human:
-            //        description = " Common, aggressive race that's good with tools.";
+            //    case CreatureRace.Human:
+            //        description = " Common, aggressive CreatureRace that's good with tools.";
             //        break;
-            //    case Race.UpSideDownMonster:
+            //    case CreatureRace.UpSideDownMonster:
             //        description = " The more you look at it the more upside down things you notice about the monster";
             //        break;
-            //    case Race.UncannyValleyMimic:
+            //    case CreatureRace.UncannyValleyMimic:
             //        description = " It shifts from one unsettling object to another";
             //        break;
-            //    case Race.TempHotVampire:
+            //    case CreatureRace.TempHotVampire:
             //        description = " A Vampire that's about to have a heat stroke";
             //        break;
-            //    case Race.Skeleton:
+            //    case CreatureRace.Skeleton:
             //        description = " A moving Skeleton.";
             //        break;
-            //    case Race.Skelington:
+            //    case CreatureRace.Skelington:
             //        description = " A Grooving Skeleton";
             //        break;
             //}//end switch 
@@ -113,16 +113,30 @@ Description:
         public static Monster GetMonster()
         {
             Monster dude = new Monster();
-
-
+            Monster g1 = new Goblin("Goblin Scout", 20, 20, 24, 15, CreatureRace.Goblin, 4, 1, "A scout from an aproaching goblin army", true);
+            Monster sk1 = new Skeleton("Bag of Bones", 5, 5, 20, 33, CreatureRace.Skeleton, 6, 2, "Nothing but bones!", true, true);
+            Monster skl1 = new Skelington("BagPipe of Bones", 9, 9, 23, 38, CreatureRace.Skelington, 7, 3, "A shambling Bag of Bones that can groan in harmony", true, false, true);
+            Monster og1 = new Ogre("Stumbling Ogre", 16, 16, 28, 20, CreatureRace.Ogre, 15, 9, "Has awful depth perception", true, true);
+            
 
             List<Monster> monsters = new List<Monster>()
             {
-            dude,
+            g1,g1,g1,sk1,sk1,g1,g1,skl1,skl1,og1,og1,sk1,og1
             };
             return monsters[new Random().Next(monsters.Count)];
         }//end GetMosnter()
-    }//end class
+        public static Monster GetBoss()
+        {
+            Monster bBoy = new BirthdayBoyOgre("Birthday Boy", 50, 50, 25, 20, CreatureRace.BirthdayBoyOgre, 13, 7, "Just wants to have a good time", true);
+
+            List<Monster> boss = new List<Monster>()
+            {
+            bBoy
+            };
+            return boss[new Random().Next(boss.Count)];
+        }
+        
+}//end class
     //Put all these guys in the MonsterLibrary
     #region Monsters move to own class
     //public class Skeleton : Monster
@@ -139,11 +153,11 @@ Description:
     //        MinDamage = 1;
     //        HitChance = 33;
     //        Block = 20;
-    //        MonsterRace = Race.Skeleton;
+    //        MonsterRace = CreatureRace.Skeleton;
     //        IsFrail = true;
     //        NoGains = true;
     //    }
-    //    public Skeleton(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+    //    public Skeleton(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
     //    {
     //        IsFrail = isFrail;
     //        NoGains = noGains;
@@ -161,10 +175,10 @@ Description:
     //        MinDamage = 1;
     //        HitChance = 38;
     //        Block = 20;
-    //        MonsterRace = Race.Skelington;
+    //        MonsterRace = CreatureRace.Skelington;
     //        SongOfItsPeople = false;
     //    }
-    //    public Skelington(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+    //    public Skelington(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
     //    {
     //        SongOfItsPeople = songOfItsPeople;
     //    }//end FQ CTOR
@@ -183,10 +197,10 @@ Description:
     //        MinDamage = 1;
     //        HitChance = 24;
     //        Block = 15;
-    //        MonsterRace = Race.Goblin;
+    //        MonsterRace = CreatureRace.Goblin;
     //        GoblinHorde = false;
     //    }
-    //    public Goblin(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool goblinHorde) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+    //    public Goblin(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool goblinHorde) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
     //    {
     //        GoblinHorde = goblinHorde;
     //    }//end FQ CTOR
@@ -206,11 +220,11 @@ Description:
     //        MinDamage = 1;
     //        HitChance = 33;
     //        Block = 20;
-    //        MonsterRace = Race.Ogre;
+    //        MonsterRace = CreatureRace.Ogre;
     //        BigSmash = false;
     //        IsClumsy = true;
     //    }
-    //    public Ogre(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool bigSmash, bool isClumsy) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+    //    public Ogre(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool bigSmash, bool isClumsy) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
     //    {
     //        BigSmash = bigSmash;
     //        IsClumsy = isClumsy;
@@ -229,11 +243,11 @@ Description:
     //        MinDamage = 1;
     //        HitChance = 33;
     //        Block = 20;
-    //        MonsterRace = Race.BirthdayBoyOgre;
+    //        MonsterRace = CreatureRace.BirthdayBoyOgre;
     //        HavingAParty = true;
     //        CryIfIWantTo = true;
     //    }
-    //    public BirthdayBoyOgre(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool havingAParty, bool cryIfIWantTo) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+    //    public BirthdayBoyOgre(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool havingAParty, bool cryIfIWantTo) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
     //    {
     //        HavingAParty = havingAParty;
     //        CryIfIWantTo = cryIfIWantTo;

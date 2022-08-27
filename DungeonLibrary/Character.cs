@@ -79,7 +79,7 @@
         }//end CalcDamage()
         public override string ToString()
         {
-            return string.Format("" +
+            return string.Format(//zero exception
                 "{0}\n" +
                 "MaxLife: {1}\n" +
                 "Life: {2}\n" +
@@ -87,6 +87,7 @@
                 "HitChance: {4}",
                 Name,
                 MaxLife,
+                Life,
                 Block,
                 HitChance);
         }//end ToString() not sure if I need this method

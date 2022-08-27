@@ -14,11 +14,11 @@ namespace MonsterLibrary
             //MinDamage = 1;
             //HitChance = 38;
             //Block = 20;
-            //MonsterRace = Race.Skelington;
+            //MonsterRace = CreatureRace.Skelington;
             //SongOfItsPeople = false;
         }
 
-        public Skelington(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description, isFrail, noGains)
+        public Skelington(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains, bool songOfItsPeople) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description, isFrail, noGains)
         {
             SongOfItsPeople=songOfItsPeople;
         }

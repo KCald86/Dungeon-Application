@@ -20,11 +20,11 @@ namespace MonsterLibrary
             //MinDamage = 1;
             //HitChance = 33;
             //Block = 20;
-            //MonsterRace = Race.BirthdayBoyOgre;
+            //MonsterRace = CreatureRace.BirthdayBoyOgre;
             //HavingAParty = true;
             //CryIfIWantTo = true;
         }
-        public BirthdayBoyOgre(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool havingAParty) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public BirthdayBoyOgre(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool havingAParty) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
         {
             HavingAParty = havingAParty;
             //CryIfIWantTo = cryIfIWantTo;

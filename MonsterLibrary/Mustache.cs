@@ -15,7 +15,7 @@ namespace MonsterLibrary
 
         public Mustache() { }//end defult CTOR
 
-        public Mustache(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool isCombed, bool isMagnificent) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public Mustache(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool isCombed, bool isMagnificent) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
         {
             IsCombed = isCombed;
             IsMagnificent = isMagnificent;

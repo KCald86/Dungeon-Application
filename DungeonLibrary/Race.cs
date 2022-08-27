@@ -6,21 +6,28 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public enum Race
+    public enum PlayRace
     {
+        Human,
+        Elf,
+        Gnome,
+        Dwarf,
+    }
+    public enum CreatureRace
+    {
+        Human,
+        Elf,
+        Gnome,
+        Dwarf,
         BirthdayBoyOgre,
-        TempHotVampire,
-        UncannyValleyMimic,
-        //Guard,
-        UpSideDownMonster,
         Champion,
         Goblin,
         Ogre,
         Skeleton,
         Skelington,
-        Human,
-        Elf,
-        Gnome,
-        Dwarf
+        UncannyValleyMimic,
+        UpSideDownMonster,
+        TempHotVampire
+        //Guard,
     }
 }

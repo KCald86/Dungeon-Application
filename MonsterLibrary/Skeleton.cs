@@ -21,12 +21,12 @@ namespace MonsterLibrary
             //MinDamage = 1;
             //HitChance = 33;
             //Block = 20;
-            //MonsterRace = Race.Skeleton;
+            //MonsterRace = CreatureRace.Skeleton;
             //IsFrail = true;
             //NoGains = true;
         }
 
-        public Skeleton(string name, int maxLife, int life, int block, int hitChance, Race monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
+        public Skeleton(string name, int maxLife, int life, int block, int hitChance, CreatureRace monsterRace, int maxDamage, int minDamage, string description, bool isFrail, bool noGains) : base(name, maxLife, life, block, hitChance, monsterRace, maxDamage, minDamage, description)
         {
             IsFrail=isFrail;
             NoGains=noGains;

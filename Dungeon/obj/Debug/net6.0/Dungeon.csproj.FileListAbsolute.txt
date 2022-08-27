@@ -13,3 +13,8 @@ C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon 
 C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\obj\Debug\net6.0\Dungeon.pdb
 C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\obj\Debug\net6.0\Dungeon.genruntimeconfig.cache
 C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\obj\Debug\net6.0\ref\Dungeon.dll
+C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\bin\Debug\net6.0\DungeonLibrary.dll
+C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\bin\Debug\net6.0\MonsterLibrary.dll
+C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\bin\Debug\net6.0\DungeonLibrary.pdb
+C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\bin\Debug\net6.0\MonsterLibrary.pdb
+C:\Users\Student\OneDrive\Documents\Visual Studio 2022\Projects\03_CSF2\Dungeon App\Dungeon\obj\Debug\net6.0\Dungeon.csproj.CopyComplete

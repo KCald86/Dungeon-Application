@@ -6,20 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Dungeon/1.0.0": {
-        "dependencies": {
-          "DungeonLibrary": "1.0.0",
-          "MonsterLibrary": "1.0.0"
-        },
-        "runtime": {
-          "Dungeon.dll": {}
-        }
-      },
-      "DungeonLibrary/1.0.0": {
-        "runtime": {
-          "DungeonLibrary.dll": {}
-        }
-      },
       "MonsterLibrary/1.0.0": {
         "dependencies": {
           "DungeonLibrary": "1.0.0"
@@ -27,21 +13,21 @@
         "runtime": {
           "MonsterLibrary.dll": {}
         }
+      },
+      "DungeonLibrary/1.0.0": {
+        "runtime": {
+          "DungeonLibrary.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "Dungeon/1.0.0": {
+    "MonsterLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "DungeonLibrary/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MonsterLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
